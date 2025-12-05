@@ -1,0 +1,13 @@
+{
+  "LiteBuildConfig": {
+    "contents": ["content"]
+  },
+  "lite_version": "0.4.0",
+  "jupyter_app_name": "Tyler Falcon's Data Musings",
+  "jupyter_app_version": "1.0.0",
+  "pypi_api": "https://pypi.org/pypi/{}/json",
+  "piplite_urls": [
+    "https://cdn.jsdelivr.net/pyodide/v0.26.2/full/pyodide.mjs",
+    "https://cdn.jsdelivr.net/pyodide/"
+  ]
+}
