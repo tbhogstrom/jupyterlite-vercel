@@ -1,0 +1,460 @@
+/*
+ * Tyler Falcon Data Science Theme
+ * Custom JupyterLite theme for data science portfolio
+ */
+
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500&display=swap');
+
+/* Theme variables */
+:root {
+  /* Primary brand colors */
+  --tf-primary: #2E86AB;
+  --tf-secondary: #A23B72;
+  --tf-accent: #F18F01;
+  --tf-success: #2ECC71;
+  --tf-warning: #F39C12;
+  --tf-error: #E74C3C;
+  
+  /* Neutral colors */
+  --tf-dark: #2C3E50;
+  --tf-medium: #7F8C8D;
+  --tf-light: #ECF0F1;
+  --tf-white: #FFFFFF;
+  
+  /* Gradients */
+  --tf-gradient-primary: linear-gradient(135deg, var(--tf-primary) 0%, var(--tf-secondary) 100%);
+  --tf-gradient-accent: linear-gradient(90deg, var(--tf-accent) 0%, var(--tf-warning) 100%);
+  --tf-gradient-data: linear-gradient(45deg, var(--tf-primary) 0%, var(--tf-accent) 50%, var(--tf-secondary) 100%);
+  
+  /* Typography */
+  --tf-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --tf-font-mono: 'Fira Code', 'SF Mono', 'Monaco', 'Consolas', monospace;
+  
+  /* Spacing */
+  --tf-spacing-xs: 4px;
+  --tf-spacing-sm: 8px;
+  --tf-spacing-md: 16px;
+  --tf-spacing-lg: 24px;
+  --tf-spacing-xl: 32px;
+  
+  /* Border radius */
+  --tf-radius-sm: 4px;
+  --tf-radius-md: 8px;
+  --tf-radius-lg: 12px;
+  
+  /* Shadows */
+  --tf-shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+  --tf-shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+  --tf-shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
+  
+  /* JupyterLab color overrides */
+  --jp-brand-color1: var(--tf-primary);
+  --jp-brand-color2: var(--tf-secondary);
+  --jp-brand-color3: var(--tf-accent);
+  --jp-accent-color1: var(--tf-primary);
+  --jp-accent-color2: var(--tf-secondary);
+  --jp-accent-color3: var(--tf-accent);
+  --jp-ui-font-family: var(--tf-font-family);
+  --jp-code-font-family: var(--tf-font-mono);
+}
+
+/* Base typography */
+body {
+  font-family: var(--tf-font-family);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--tf-dark);
+  background: var(--tf-light);
+}
+
+/* Header and navigation */
+.jp-TopBar {
+  background: var(--tf-gradient-primary);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  box-shadow: var(--tf-shadow-md);
+}
+
+.jp-TopBar .jp-Toolbar {
+  background: transparent;
+  padding: 0 var(--tf-spacing-md);
+}
+
+.jp-TopBar .jp-ToolbarButtonComponent {
+  color: white;
+  border-radius: var(--tf-radius-sm);
+  transition: all 0.2s ease;
+}
+
+.jp-TopBar .jp-ToolbarButtonComponent:hover {
+  background: rgba(255,255,255,0.1);
+  transform: translateY(-1px);
+}
+
+/* Main layout */
+.jp-MainAreaWidget {
+  background: var(--tf-white);
+  border-radius: var(--tf-radius-lg);
+  margin: var(--tf-spacing-sm);
+  box-shadow: var(--tf-shadow-sm);
+  overflow: hidden;
+}
+
+/* Sidebar */
+.jp-SideBar {
+  background: var(--tf-white);
+  border-right: 1px solid var(--tf-light);
+  box-shadow: var(--tf-shadow-sm);
+}
+
+.jp-SideBar .jp-SidePanel {
+  background: transparent;
+}
+
+.jp-SideBar .jp-AccordionPanel h3 {
+  background: var(--tf-gradient-primary);
+  color: white;
+  border-radius: var(--tf-radius-sm);
+  margin: var(--tf-spacing-xs);
+  padding: var(--tf-spacing-sm) var(--tf-spacing-md);
+  font-weight: 600;
+}
+
+/* File browser */
+.jp-FileBrowser .jp-DirListing-item {
+  border-radius: var(--tf-radius-sm);
+  margin: var(--tf-spacing-xs);
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.jp-FileBrowser .jp-DirListing-item:hover {
+  background: var(--tf-light);
+  transform: translateX(var(--tf-spacing-xs));
+}
+
+.jp-FileBrowser .jp-DirListing-item.jp-mod-selected {
+  background: var(--tf-gradient-primary);
+  color: white;
+  box-shadow: var(--tf-shadow-sm);
+}
+
+/* Notebook styling */
+.jp-Notebook {
+  background: var(--tf-white);
+  padding: var(--tf-spacing-md);
+}
+
+/* Cell styling */
+.jp-Cell {
+  border-radius: var(--tf-radius-md);
+  margin: var(--tf-spacing-md) 0;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.jp-Cell:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--tf-shadow-md);
+}
+
+.jp-Cell.jp-mod-selected {
+  border-left: 4px solid var(--tf-primary);
+  box-shadow: var(--tf-shadow-lg);
+}
+
+/* Code cells */
+.jp-CodeCell {
+  background: var(--tf-white);
+  border: 1px solid var(--tf-light);
+  border-radius: var(--tf-radius-md);
+}
+
+.jp-CodeCell .jp-InputArea {
+  background: #FAFBFC;
+  border-radius: var(--tf-radius-sm);
+  border: 1px solid #E1E8ED;
+}
+
+.jp-CodeCell .jp-InputPrompt {
+  background: var(--tf-gradient-primary);
+  color: white;
+  border-radius: var(--tf-radius-sm) 0 0 var(--tf-radius-sm);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jp-CodeCell .jp-OutputArea {
+  background: var(--tf-white);
+  border-radius: 0 0 var(--tf-radius-sm) var(--tf-radius-sm);
+  border-top: 2px solid var(--tf-light);
+  margin-top: var(--tf-spacing-sm);
+}
+
+/* Markdown cells */
+.jp-MarkdownCell {
+  background: var(--tf-white);
+  border: 1px solid var(--tf-light);
+  border-radius: var(--tf-radius-md);
+}
+
+.jp-MarkdownCell .jp-MarkdownOutput {
+  padding: var(--tf-spacing-lg);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* Markdown headings */
+.jp-MarkdownCell .jp-MarkdownOutput h1 {
+  background: var(--tf-gradient-data);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin: var(--tf-spacing-xl) 0 var(--tf-spacing-lg);
+  text-align: center;
+}
+
+.jp-MarkdownCell .jp-MarkdownOutput h2 {
+  color: var(--tf-primary);
+  font-weight: 600;
+  font-size: 1.875rem;
+  margin: var(--tf-spacing-lg) 0 var(--tf-spacing-md);
+  border-bottom: 3px solid var(--tf-primary);
+  padding-bottom: var(--tf-spacing-sm);
+}
+
+.jp-MarkdownCell .jp-MarkdownOutput h3 {
+  color: var(--tf-secondary);
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin: var(--tf-spacing-lg) 0 var(--tf-spacing-md);
+}
+
+.jp-MarkdownCell .jp-MarkdownOutput h4 {
+  color: var(--tf-accent);
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin: var(--tf-spacing-md) 0;
+}
+
+/* Code highlighting */
+.jp-CodeMirror {
+  font-family: var(--tf-font-mono);
+  font-size: 14px;
+  line-height: 1.5;
+  border-radius: var(--tf-radius-sm);
+}
+
+.jp-CodeMirror .CodeMirror-cursor {
+  border-left: 2px solid var(--tf-primary);
+}
+
+.jp-CodeMirror .CodeMirror-selected {
+  background: rgba(46, 134, 171, 0.1);
+}
+
+/* Output styling */
+.jp-OutputArea-output {
+  border-radius: var(--tf-radius-sm);
+  overflow: hidden;
+}
+
+.jp-OutputArea-output pre {
+  background: #F8F9FA;
+  border: 1px solid var(--tf-light);
+  border-radius: var(--tf-radius-sm);
+  padding: var(--tf-spacing-md);
+  font-family: var(--tf-font-mono);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* Data frames and tables */
+.jp-RenderedHTMLCommon table {
+  border-collapse: collapse;
+  margin: var(--tf-spacing-lg) 0;
+  width: 100%;
+  background: var(--tf-white);
+  border-radius: var(--tf-radius-md);
+  overflow: hidden;
+  box-shadow: var(--tf-shadow-md);
+}
+
+.jp-RenderedHTMLCommon table th {
+  background: var(--tf-gradient-primary);
+  color: white;
+  padding: var(--tf-spacing-md) var(--tf-spacing-lg);
+  font-weight: 600;
+  text-align: left;
+}
+
+.jp-RenderedHTMLCommon table td {
+  padding: var(--tf-spacing-md) var(--tf-spacing-lg);
+  border-bottom: 1px solid var(--tf-light);
+}
+
+.jp-RenderedHTMLCommon table tr:nth-child(even) {
+  background: rgba(46, 134, 171, 0.02);
+}
+
+.jp-RenderedHTMLCommon table tr:hover {
+  background: rgba(46, 134, 171, 0.05);
+  transform: scale(1.001);
+  transition: all 0.2s ease;
+}
+
+/* Matplotlib/plot styling */
+.jp-RenderedImage {
+  border-radius: var(--tf-radius-md);
+  box-shadow: var(--tf-shadow-md);
+  margin: var(--tf-spacing-lg) 0;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Toolbar styling */
+.jp-Toolbar {
+  background: var(--tf-white);
+  border-bottom: 1px solid var(--tf-light);
+  padding: var(--tf-spacing-sm) var(--tf-spacing-md);
+  box-shadow: var(--tf-shadow-sm);
+}
+
+.jp-ToolbarButton {
+  border-radius: var(--tf-radius-sm);
+  transition: all 0.2s ease;
+  color: var(--tf-dark);
+  font-weight: 500;
+}
+
+.jp-ToolbarButton:hover {
+  background: var(--tf-light);
+  color: var(--tf-primary);
+  transform: translateY(-1px);
+}
+
+.jp-ToolbarButton.jp-mod-current {
+  background: var(--tf-gradient-primary);
+  color: white;
+}
+
+/* Status bar */
+.jp-StatusBar {
+  background: var(--tf-gradient-primary);
+  color: white;
+  font-weight: 500;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--tf-light);
+  border-radius: var(--tf-radius-sm);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--tf-medium);
+  border-radius: var(--tf-radius-sm);
+  transition: all 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--tf-primary);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.jp-Cell {
+  animation: fadeInUp 0.4s ease;
+}
+
+/* Loading states */
+.jp-SpinnerContent {
+  border-top-color: var(--tf-primary);
+}
+
+/* Progress bars */
+.jp-ProgressBar {
+  background: var(--tf-gradient-primary);
+  border-radius: var(--tf-radius-lg);
+  height: 6px;
+}
+
+/* Custom utility classes */
+.tf-gradient-text {
+  background: var(--tf-gradient-data);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+.tf-card {
+  background: var(--tf-white);
+  border-radius: var(--tf-radius-md);
+  box-shadow: var(--tf-shadow-md);
+  padding: var(--tf-spacing-lg);
+  margin: var(--tf-spacing-md) 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .jp-SideBar {
+    min-width: 250px;
+  }
+  
+  .jp-Cell {
+    margin: var(--tf-spacing-sm) 0;
+  }
+  
+  .jp-MarkdownCell .jp-MarkdownOutput {
+    padding: var(--tf-spacing-md);
+  }
+  
+  .jp-MarkdownCell .jp-MarkdownOutput h1 {
+    font-size: 2rem;
+  }
+  
+  .jp-MarkdownCell .jp-MarkdownOutput h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Print styles */
+@media print {
+  .jp-TopBar,
+  .jp-SideBar,
+  .jp-Toolbar {
+    display: none;
+  }
+  
+  .jp-MainAreaWidget {
+    margin: 0;
+    box-shadow: none;
+    border-radius: 0;
+  }
+  
+  .jp-Cell {
+    break-inside: avoid;
+    box-shadow: none;
+  }
+}

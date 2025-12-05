@@ -1,0 +1,270 @@
+/* Custom JupyterLite Styling */
+
+/* Main theme colors */
+:root {
+  --jp-brand-color1: #2E86AB;
+  --jp-brand-color2: #A23B72;
+  --jp-brand-color3: #F18F01;
+  --jp-accent-color1: #2E86AB;
+  --jp-accent-color2: #F24236;
+  --jp-accent-color3: #F18F01;
+}
+
+/* Header styling */
+.jp-TopBar {
+  background: linear-gradient(135deg, #2E86AB 0%, #A23B72 100%);
+  border-bottom: 2px solid #2E86AB;
+}
+
+.jp-TopBar .jp-Toolbar {
+  background: transparent;
+}
+
+/* Sidebar styling */
+.jp-SideBar {
+  background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+  border-right: 1px solid #dee2e6;
+}
+
+.jp-SideBar .jp-AccordionPanel {
+  background: transparent;
+}
+
+/* Notebook styling */
+.jp-Notebook {
+  background: #ffffff;
+}
+
+.jp-Cell {
+  border-radius: 8px;
+  margin: 8px 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.jp-Cell.jp-mod-selected {
+  border-left: 4px solid #2E86AB;
+  background: rgba(46, 134, 171, 0.02);
+}
+
+/* Code cells */
+.jp-CodeCell {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+}
+
+.jp-CodeCell .jp-InputArea {
+  background: #ffffff;
+  border-radius: 4px;
+}
+
+.jp-CodeCell .jp-OutputArea {
+  background: #ffffff;
+  border-radius: 0 0 4px 4px;
+  border-top: 1px solid #e9ecef;
+  margin-top: 4px;
+}
+
+/* Markdown cells */
+.jp-MarkdownCell {
+  background: #ffffff;
+  border: 1px solid #e9ecef;
+}
+
+.jp-MarkdownCell .jp-MarkdownOutput {
+  padding: 16px;
+}
+
+.jp-MarkdownCell .jp-MarkdownOutput h1 {
+  color: #2E86AB;
+  border-bottom: 2px solid #2E86AB;
+  padding-bottom: 8px;
+}
+
+.jp-MarkdownCell .jp-MarkdownOutput h2 {
+  color: #A23B72;
+  border-bottom: 1px solid #A23B72;
+  padding-bottom: 4px;
+}
+
+.jp-MarkdownCell .jp-MarkdownOutput h3 {
+  color: #F18F01;
+}
+
+/* Code highlighting */
+.jp-CodeMirror {
+  font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* Output styling */
+.jp-OutputArea-output {
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.jp-OutputArea-output pre {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 4px;
+  padding: 12px;
+  font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+  font-size: 12px;
+}
+
+/* Toolbar styling */
+.jp-Toolbar {
+  background: #ffffff;
+  border-bottom: 1px solid #e9ecef;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.jp-Toolbar-item {
+  padding: 4px 8px;
+}
+
+.jp-ToolbarButton {
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.jp-ToolbarButton:hover {
+  background: rgba(46, 134, 171, 0.1);
+  transform: translateY(-1px);
+}
+
+/* File browser styling */
+.jp-FileBrowser {
+  background: #ffffff;
+}
+
+.jp-FileBrowser .jp-DirListing-item {
+  border-radius: 4px;
+  margin: 2px 4px;
+  transition: all 0.2s ease;
+}
+
+.jp-FileBrowser .jp-DirListing-item:hover {
+  background: rgba(46, 134, 171, 0.1);
+  transform: translateX(2px);
+}
+
+.jp-FileBrowser .jp-DirListing-item.jp-mod-selected {
+  background: rgba(46, 134, 171, 0.15);
+  border: 1px solid #2E86AB;
+}
+
+/* Status bar */
+.jp-StatusBar {
+  background: linear-gradient(90deg, #2E86AB 0%, #A23B72 100%);
+  color: white;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2E86AB;
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.jp-Cell {
+  animation: fadeIn 0.3s ease;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .jp-SideBar {
+    min-width: 200px;
+  }
+  
+  .jp-Cell {
+    margin: 4px 0;
+  }
+  
+  .jp-CodeMirror {
+    font-size: 12px;
+  }
+}
+
+/* Data science specific styling */
+.jp-OutputArea .jp-RenderedImage {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin: 16px 0;
+}
+
+.jp-OutputArea .jp-RenderedHTMLCommon table {
+  border-collapse: collapse;
+  margin: 16px 0;
+  width: 100%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.jp-OutputArea .jp-RenderedHTMLCommon table th {
+  background: linear-gradient(135deg, #2E86AB 0%, #A23B72 100%);
+  color: white;
+  padding: 12px 16px;
+  font-weight: 600;
+}
+
+.jp-OutputArea .jp-RenderedHTMLCommon table td {
+  padding: 10px 16px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.jp-OutputArea .jp-RenderedHTMLCommon table tr:nth-child(even) {
+  background: rgba(46, 134, 171, 0.05);
+}
+
+.jp-OutputArea .jp-RenderedHTMLCommon table tr:hover {
+  background: rgba(46, 134, 171, 0.1);
+  transform: scale(1.01);
+  transition: all 0.2s ease;
+}
+
+/* Progress bars and loading indicators */
+.jp-ProgressBar {
+  background: linear-gradient(90deg, #2E86AB 0%, #A23B72 100%);
+  border-radius: 10px;
+}
+
+/* Custom classes for portfolio branding */
+.tyler-falcon-brand {
+  background: linear-gradient(135deg, #2E86AB 0%, #A23B72 50%, #F18F01 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
+
+/* Welcome message styling */
+.jp-Notebook-cell:first-child .jp-MarkdownOutput h1 {
+  text-align: center;
+  background: linear-gradient(135deg, #2E86AB 0%, #A23B72 50%, #F18F01 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2.5em;
+  margin: 32px 0;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
