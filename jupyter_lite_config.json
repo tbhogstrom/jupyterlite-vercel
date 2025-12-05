@@ -1,7 +1,6 @@
 {
   "LiteBuildConfig": {
-    "contents": ["content"],
-    "settings_overrides": {"@jupyterlab/apputils-extension:themes": {"theme": "JupyterLab Dark"}, "@jupyterlab/notebook-extension:tracker": {"codeCellConfig": {"lineNumbers": true}}}
+    "contents": ["content"]
   },
   "lite_version": "0.4.0",
   "jupyter_app_name": "Tyler Falcon's Data Musings",
