@@ -3,11 +3,15 @@ set -euo pipefail
 
 echo "Starting JupyterLite build for Vercel deployment..."
 
+# Set environment variables for micromamba
+export MAMBA_ROOT_PREFIX="$(pwd)/mamba"
+export PATH="$(pwd)/bin:$PATH"
+
 # Download and install micromamba
 curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xvj bin/micromamba
 
 # Create Python environment
-./bin/micromamba create -y -n build python=3.12
+./bin/micromamba create -y -n build python=3.12 -c conda-forge
 
 # Activate environment and install dependencies
 eval "$(./bin/micromamba shell hook --shell bash)"
